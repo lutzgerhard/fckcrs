@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49D9697F2F7C0B590043E739 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = 49D9697E2F7C0B590043E739 /* MapboxMaps */; };
+		BB11111111111111111111A1 /* FCKCRSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A1 /* FCKCRSApp.swift */; };
+		BB11111111111111111111A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A2 /* ContentView.swift */; };
+		BB11111111111111111111A3 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A3 /* CameraView.swift */; };
+		BB11111111111111111111A4 /* DetectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A4 /* DetectionOverlayView.swift */; };
+		BB11111111111111111111A5 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A5 /* MapView.swift */; };
+		BB11111111111111111111A6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A6 /* ContentViewModel.swift */; };
+		BB11111111111111111111A7 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A7 /* CameraViewModel.swift */; };
+		BB11111111111111111111A8 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A8 /* MapViewModel.swift */; };
+		BB11111111111111111111A9 /* DetectedVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111A9 /* DetectedVehicle.swift */; };
+		BB11111111111111111111AA /* LicensePlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111AA /* LicensePlate.swift */; };
+		BB11111111111111111111AB /* DetectionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111AB /* DetectionRecord.swift */; };
+		BB11111111111111111111AC /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111AC /* CameraService.swift */; };
+		BB11111111111111111111AD /* LiDARService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111AD /* LiDARService.swift */; };
+		BB11111111111111111111AE /* VehicleDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111AE /* VehicleDetectionService.swift */; };
+		BB11111111111111111111AF /* LicensePlateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111AF /* LicensePlateService.swift */; };
+		BB11111111111111111111B0 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B0 /* LocationService.swift */; };
+		BB11111111111111111111B1 /* DetectionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B1 /* DetectionStorage.swift */; };
+		BB11111111111111111111B2 /* YOLOv8Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B4 /* YOLOv8Detector.swift */; };
+		BB11111111111111111111B3 /* CarDistanceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B6 /* CarDistanceTracker.swift */; };
+		BB11111111111111111111B4 /* SpeedLimitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B7 /* SpeedLimitService.swift */; };
+		BB2222222222222222222201 /* MapboxFollowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2222222222222222222201 /* MapboxFollowView.swift */; };
+		BB44444444444444444444A1 /* MapboxFusedLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44444444444444444444A1 /* MapboxFusedLocationProvider.swift */; };
+		BB22222222222222222222A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A1 /* AVFoundation.framework */; };
+		BB22222222222222222222A2 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A2 /* ARKit.framework */; };
+		BB22222222222222222222A3 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A3 /* CoreML.framework */; };
+		BB22222222222222222222A4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A4 /* MapKit.framework */; };
+		BB22222222222222222222A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A5 /* CoreLocation.framework */; };
+		BB22222222222222222222A6 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A6 /* Vision.framework */; };
+		BB22222222222222222222A7 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22222222222222222222A7 /* Photos.framework */; };
+		BB33333333333333333333A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B2 /* Assets.xcassets */; };
+		BB33333333333333333333A2 /* yolo11n.mlpackage in Resources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B5 /* yolo11n.mlpackage */; };
+		BB11111111111111111111B5 /* RollingClipRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B8 /* RollingClipRecorder.swift */; };
+		BB11111111111111111111B6 /* VideoLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B9 /* VideoLibraryService.swift */; };
+		BB11111111111111111111B7 /* VideoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111BA /* VideoGalleryView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA11111111111111111111A1 /* FCKCRSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCKCRSApp.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A3 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A4 /* DetectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionOverlayView.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A5 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A7 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A8 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		AA11111111111111111111A9 /* DetectedVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectedVehicle.swift; sourceTree = "<group>"; };
+		AA11111111111111111111AA /* LicensePlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensePlate.swift; sourceTree = "<group>"; };
+		AA11111111111111111111AB /* DetectionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionRecord.swift; sourceTree = "<group>"; };
+		AA11111111111111111111AC /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111AD /* LiDARService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiDARService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111AE /* VehicleDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetectionService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111AF /* LicensePlateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensePlateService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B0 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B1 /* DetectionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionStorage.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA11111111111111111111B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA11111111111111111111B4 /* YOLOv8Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOv8Detector.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B5 /* yolo11n.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper.mlpackage; path = yolo11n.mlpackage; sourceTree = "<group>"; };
+		AA11111111111111111111B6 /* CarDistanceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDistanceTracker.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B7 /* SpeedLimitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedLimitService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B8 /* RollingClipRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingClipRecorder.swift; sourceTree = "<group>"; };
+		AA11111111111111111111B9 /* VideoLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibraryService.swift; sourceTree = "<group>"; };
+		AA11111111111111111111BA /* VideoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryView.swift; sourceTree = "<group>"; };
+		AA44444444444444444444A1 /* MapboxFusedLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxFusedLocationProvider.swift; sourceTree = "<group>"; };
+		AA2222222222222222222201 /* MapboxFollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxFollowView.swift; sourceTree = "<group>"; };
+		AA22222222222222222222A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AA22222222222222222222A2 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		AA22222222222222222222A3 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		AA22222222222222222222A4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AA22222222222222222222A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AA22222222222222222222A6 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		AA22222222222222222222A7 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		FF55555555555555555555A1 /* FCKCRS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCKCRS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC55555555555555555555A1 /* config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = config.xcconfig; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD11111111111111111111A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB22222222222222222222A1 /* AVFoundation.framework in Frameworks */,
+				BB22222222222222222222A2 /* ARKit.framework in Frameworks */,
+				49D9697F2F7C0B590043E739 /* MapboxMaps in Frameworks */,
+				BB22222222222222222222A3 /* CoreML.framework in Frameworks */,
+				BB22222222222222222222A4 /* MapKit.framework in Frameworks */,
+				BB22222222222222222222A5 /* CoreLocation.framework in Frameworks */,
+				BB22222222222222222222A6 /* Vision.framework in Frameworks */,
+				BB22222222222222222222A7 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49D9697C2F7C0ACF0043E739 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				AA22222222222222222222A7 /* Photos.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A1 = {
+			isa = PBXGroup;
+			children = (
+				CC55555555555555555555A1 /* config.xcconfig */,
+				CC11111111111111111111A2 /* FCKCRS */,
+				CC11111111111111111111A9 /* Frameworks */,
+				CC11111111111111111111A8 /* Products */,
+				49D9697C2F7C0ACF0043E739 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A2 /* FCKCRS */ = {
+			isa = PBXGroup;
+			children = (
+				AA11111111111111111111A1 /* FCKCRSApp.swift */,
+				AA11111111111111111111A2 /* ContentView.swift */,
+				CC11111111111111111111A3 /* Views */,
+				CC11111111111111111111A4 /* ViewModels */,
+				CC11111111111111111111A5 /* Models */,
+				CC11111111111111111111A6 /* Services */,
+				CC11111111111111111111A7 /* Utilities */,
+				AA11111111111111111111B2 /* Assets.xcassets */,
+				AA11111111111111111111B5 /* yolo11n.mlpackage */,
+				AA11111111111111111111B3 /* Info.plist */,
+			);
+			path = FCKCRS;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA11111111111111111111A3 /* CameraView.swift */,
+				AA11111111111111111111A4 /* DetectionOverlayView.swift */,
+				AA11111111111111111111A5 /* MapView.swift */,
+				AA2222222222222222222201 /* MapboxFollowView.swift */,
+				AA11111111111111111111BA /* VideoGalleryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA11111111111111111111A6 /* ContentViewModel.swift */,
+				AA11111111111111111111A7 /* CameraViewModel.swift */,
+				AA11111111111111111111A8 /* MapViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA11111111111111111111A9 /* DetectedVehicle.swift */,
+				AA11111111111111111111AA /* LicensePlate.swift */,
+				AA11111111111111111111AB /* DetectionRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA11111111111111111111AC /* CameraService.swift */,
+				AA11111111111111111111AD /* LiDARService.swift */,
+				AA11111111111111111111AE /* VehicleDetectionService.swift */,
+				AA11111111111111111111AF /* LicensePlateService.swift */,
+				AA11111111111111111111B0 /* LocationService.swift */,
+				AA11111111111111111111B4 /* YOLOv8Detector.swift */,
+				AA11111111111111111111B6 /* CarDistanceTracker.swift */,
+				AA11111111111111111111B7 /* SpeedLimitService.swift */,
+				AA44444444444444444444A1 /* MapboxFusedLocationProvider.swift */,
+				AA11111111111111111111B8 /* RollingClipRecorder.swift */,
+				AA11111111111111111111B9 /* VideoLibraryService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AA11111111111111111111B1 /* DetectionStorage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF55555555555555555555A1 /* FCKCRS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC11111111111111111111A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA22222222222222222222A1 /* AVFoundation.framework */,
+				AA22222222222222222222A2 /* ARKit.framework */,
+				AA22222222222222222222A3 /* CoreML.framework */,
+				AA22222222222222222222A4 /* MapKit.framework */,
+				AA22222222222222222222A5 /* CoreLocation.framework */,
+				AA22222222222222222222A6 /* Vision.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE11111111111111111111A1 /* FCKCRS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF11111111111111111111A2 /* Build configuration list for PBXNativeTarget "FCKCRS" */;
+			buildPhases = (
+				DD11111111111111111111A1 /* Sources */,
+				DD11111111111111111111A2 /* Frameworks */,
+				DD11111111111111111111A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FCKCRS;
+			productName = FCKCRS;
+			productReference = FF55555555555555555555A1 /* FCKCRS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF44444444444444444444A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					EE11111111111111111111A1 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = FF11111111111111111111A1 /* Build configuration list for PBXProject "FCKCRS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CC11111111111111111111A1;
+			packageReferences = (
+				49D9697D2F7C0B590043E739 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+			);
+			productRefGroup = CC11111111111111111111A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE11111111111111111111A1 /* FCKCRS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD11111111111111111111A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB33333333333333333333A1 /* Assets.xcassets in Resources */,
+				BB33333333333333333333A2 /* yolo11n.mlpackage in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD11111111111111111111A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB11111111111111111111A1 /* FCKCRSApp.swift in Sources */,
+				BB11111111111111111111A2 /* ContentView.swift in Sources */,
+				BB11111111111111111111A3 /* CameraView.swift in Sources */,
+				BB11111111111111111111A4 /* DetectionOverlayView.swift in Sources */,
+				BB11111111111111111111A5 /* MapView.swift in Sources */,
+				BB2222222222222222222201 /* MapboxFollowView.swift in Sources */,
+				BB11111111111111111111A6 /* ContentViewModel.swift in Sources */,
+				BB11111111111111111111A7 /* CameraViewModel.swift in Sources */,
+				BB11111111111111111111A8 /* MapViewModel.swift in Sources */,
+				BB11111111111111111111A9 /* DetectedVehicle.swift in Sources */,
+				BB11111111111111111111AA /* LicensePlate.swift in Sources */,
+				BB11111111111111111111AB /* DetectionRecord.swift in Sources */,
+				BB11111111111111111111AC /* CameraService.swift in Sources */,
+				BB11111111111111111111AD /* LiDARService.swift in Sources */,
+				BB11111111111111111111AE /* VehicleDetectionService.swift in Sources */,
+				BB11111111111111111111AF /* LicensePlateService.swift in Sources */,
+				BB11111111111111111111B0 /* LocationService.swift in Sources */,
+				BB11111111111111111111B1 /* DetectionStorage.swift in Sources */,
+				BB11111111111111111111B2 /* YOLOv8Detector.swift in Sources */,
+				BB11111111111111111111B3 /* CarDistanceTracker.swift in Sources */,
+				BB11111111111111111111B4 /* SpeedLimitService.swift in Sources */,
+				BB44444444444444444444A1 /* MapboxFusedLocationProvider.swift in Sources */,
+				BB11111111111111111111B5 /* RollingClipRecorder.swift in Sources */,
+				BB11111111111111111111B6 /* VideoLibraryService.swift in Sources */,
+				BB11111111111111111111B7 /* VideoGalleryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FF22222222222222222222A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = M6YL288KG9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF22222222222222222222A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = M6YL288KG9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF33333333333333333333A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC55555555555555555555A1 /* config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FCKCRS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fckcrs.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FF33333333333333333333A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC55555555555555555555A1 /* config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FCKCRS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fckcrs.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF11111111111111111111A1 /* Build configuration list for PBXProject "FCKCRS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF22222222222222222222A1 /* Debug */,
+				FF22222222222222222222A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF11111111111111111111A2 /* Build configuration list for PBXNativeTarget "FCKCRS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF33333333333333333333A1 /* Debug */,
+				FF33333333333333333333A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49D9697D2F7C0B590043E739 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49D9697E2F7C0B590043E739 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49D9697D2F7C0B590043E739 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FF44444444444444444444A1 /* Project object */;
+}
