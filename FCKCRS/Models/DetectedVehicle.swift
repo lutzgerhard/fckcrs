@@ -3,6 +3,7 @@
 
 import Foundation
 import CoreGraphics
+import simd
 
 /// A vehicle currently visible in the camera frame.
 struct DetectedVehicle: Identifiable, Equatable {
@@ -44,6 +45,11 @@ struct DetectedVehicle: Identifiable, Equatable {
 
     /// True when the vehicle is moving toward the camera (positive radial velocity).
     var isApproaching: Bool
+
+    /// 3D world position from ARKit (nil when ARKit unavailable or no plane found).
+    var worldPosition: simd_float3? = nil
+    /// Ground-plane velocity vector (vx, vz) in m/s in ARKit world coords.
+    var velocityVector: simd_float2? = nil
 
     // ── Timestamps ──────────────────────────────────────────────────────
 

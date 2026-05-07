@@ -158,6 +158,28 @@ final class YOLOv8CoreMLDetector: VehicleDetector, @unchecked Sendable {
             }
         }
     }
+
+    // MARK: - Warmup
+
+    /// Pre-heats the ANE/CoreML pipeline with 3 dummy inferences on a background thread.
+    func warmUp() {
+        Task.detached(priority: .background) { [vnModel] in
+            guard let pixelBuffer = Self.makeBlackPixelBuffer(width: 640, height: 640) else { return }
+            for _ in 0..<3 {
+                let request = VNCoreMLRequest(model: vnModel)
+                request.imageCropAndScaleOption = .scaleFill
+                let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .right, options: [:])
+                try? handler.perform([request])
+            }
+        }
+    }
+
+    private static func makeBlackPixelBuffer(width: Int, height: Int) -> CVPixelBuffer? {
+        var pb: CVPixelBuffer?
+        CVPixelBufferCreate(kCFAllocatorDefault, width, height,
+                            kCVPixelFormatType_32BGRA, nil, &pb)
+        return pb
+    }
 }
 
 // MARK: - Error

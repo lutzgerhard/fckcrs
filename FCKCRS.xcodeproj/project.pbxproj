@@ -42,6 +42,12 @@
 		BB11111111111111111111B5 /* RollingClipRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B8 /* RollingClipRecorder.swift */; };
 		BB11111111111111111111B6 /* VideoLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111B9 /* VideoLibraryService.swift */; };
 		BB11111111111111111111B7 /* VideoGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11111111111111111111BA /* VideoGalleryView.swift */; };
+		CC11111111111111111111D1 /* VelocityKalmanFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11111111111111111111C1 /* VelocityKalmanFilter.swift */; };
+		CC11111111111111111111D2 /* ARVelocityEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11111111111111111111C2 /* ARVelocityEstimator.swift */; };
+		CC11111111111111111111D3 /* SAHISliceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11111111111111111111C3 /* SAHISliceDetector.swift */; };
+		CC11111111111111111111D4 /* CalibrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11111111111111111111C4 /* CalibrationService.swift */; };
+		CC11111111111111111111D5 /* VelocityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11111111111111111111C5 /* VelocityLogger.swift */; };
+		CC11111111111111111111D6 /* CalibrationOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC11111111111111111111C6 /* CalibrationOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +79,12 @@
 		AA11111111111111111111BA /* VideoGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryView.swift; sourceTree = "<group>"; };
 		AA44444444444444444444A1 /* MapboxFusedLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxFusedLocationProvider.swift; sourceTree = "<group>"; };
 		AA2222222222222222222201 /* MapboxFollowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapboxFollowView.swift; sourceTree = "<group>"; };
+		CC11111111111111111111C1 /* VelocityKalmanFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityKalmanFilter.swift; sourceTree = "<group>"; };
+		CC11111111111111111111C2 /* ARVelocityEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVelocityEstimator.swift; sourceTree = "<group>"; };
+		CC11111111111111111111C3 /* SAHISliceDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAHISliceDetector.swift; sourceTree = "<group>"; };
+		CC11111111111111111111C4 /* CalibrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationService.swift; sourceTree = "<group>"; };
+		CC11111111111111111111C5 /* VelocityLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityLogger.swift; sourceTree = "<group>"; };
+		CC11111111111111111111C6 /* CalibrationOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationOverlayView.swift; sourceTree = "<group>"; };
 		AA22222222222222222222A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AA22222222222222222222A2 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		AA22222222222222222222A3 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
@@ -147,6 +159,7 @@
 				AA11111111111111111111A5 /* MapView.swift */,
 				AA2222222222222222222201 /* MapboxFollowView.swift */,
 				AA11111111111111111111BA /* VideoGalleryView.swift */,
+				CC11111111111111111111C6 /* CalibrationOverlayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +198,10 @@
 				AA44444444444444444444A1 /* MapboxFusedLocationProvider.swift */,
 				AA11111111111111111111B8 /* RollingClipRecorder.swift */,
 				AA11111111111111111111B9 /* VideoLibraryService.swift */,
+				CC11111111111111111111C1 /* VelocityKalmanFilter.swift */,
+				CC11111111111111111111C2 /* ARVelocityEstimator.swift */,
+				CC11111111111111111111C3 /* SAHISliceDetector.swift */,
+				CC11111111111111111111C4 /* CalibrationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -193,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AA11111111111111111111B1 /* DetectionStorage.swift */,
+				CC11111111111111111111C5 /* VelocityLogger.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -316,6 +334,12 @@
 				BB11111111111111111111B5 /* RollingClipRecorder.swift in Sources */,
 				BB11111111111111111111B6 /* VideoLibraryService.swift in Sources */,
 				BB11111111111111111111B7 /* VideoGalleryView.swift in Sources */,
+				CC11111111111111111111D1 /* VelocityKalmanFilter.swift in Sources */,
+				CC11111111111111111111D2 /* ARVelocityEstimator.swift in Sources */,
+				CC11111111111111111111D3 /* SAHISliceDetector.swift in Sources */,
+				CC11111111111111111111D4 /* CalibrationService.swift in Sources */,
+				CC11111111111111111111D5 /* VelocityLogger.swift in Sources */,
+				CC11111111111111111111D6 /* CalibrationOverlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

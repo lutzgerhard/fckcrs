@@ -77,6 +77,14 @@ final class VehicleDetectionService: ObservableObject {
     private let plateService: LicensePlateService
     private let detector: VehicleDetector
     private let distanceTracker = CarDistanceTracker()
+    private let arVelocityEstimator = ARVelocityEstimator()
+
+    /// Public so ContentView can show calibration UI.
+    let calibrationService = CalibrationService()
+
+    // MARK: ARFrame storage
+
+    private var lastARFrame: ARFrame?
 
     // MARK: Tracking state
 
@@ -113,6 +121,13 @@ final class VehicleDetectionService: ObservableObject {
         self.detector = VehicleDetectionService.makeDetector()
         log.info("Using detector: \(self.detector.name)")
 
+        // Warmup
+        if let sahi = self.detector as? SAHISliceDetector {
+            sahi.warmUp()
+        } else if let yolo = self.detector as? YOLOv8CoreMLDetector {
+            yolo.warmUp()
+        }
+
         #if targetEnvironment(simulator)
         DispatchQueue.main.async { [weak self] in self?.startSimulatorTimer() }
         #endif
@@ -134,26 +149,33 @@ final class VehicleDetectionService: ObservableObject {
                 if self.isWarmingUp {
                     withAnimation(.easeInOut(duration: 0.4)) { self.isWarmingUp = false }
                 }
-                self.applyRawDetections([raw], nonVehicle: nil, intrinsics: nil, timestamp: Date().timeIntervalSinceReferenceDate)
+                self.applyRawDetections([raw], nonVehicle: nil, intrinsics: nil,
+                                        arFrame: nil, timestamp: Date().timeIntervalSinceReferenceDate)
             }
         }
     }
     #endif
 
-    /// Factory — swap here to change the active detector.
+    /// Factory — tries SAHI first, then plain YOLO, then stub.
     private static func makeDetector() -> VehicleDetector {
-        do {
-            return try YOLOv8CoreMLDetector()
-        } catch {
-            log.warning("YOLOv8 model unavailable (\(error.localizedDescription)), falling back to stub")
-            return StubVehicleDetector()
+        if let sahi = try? SAHISliceDetector() {
+            return sahi
         }
+        if let yolo = try? YOLOv8CoreMLDetector() {
+            log.warning("SAHISliceDetector unavailable, falling back to YOLOv8CoreMLDetector")
+            return yolo
+        }
+        log.warning("YOLOv8 model unavailable, falling back to stub")
+        return StubVehicleDetector()
     }
 
     // MARK: - Frame processing
 
     func process(sampleBuffer: CMSampleBuffer, arFrame: ARFrame?) async {
         guard !isProcessing else { return }
+
+        // Store latest ARFrame for use in applyRawDetections
+        if let frame = arFrame { lastARFrame = frame }
 
         let pts = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
         let now = pts.seconds
@@ -180,7 +202,8 @@ final class VehicleDetectionService: ObservableObject {
         let topNV = allDetections.filter { !$0.isVehicle }
             .max(by: { $0.confidence < $1.confidence })
 
-        applyRawDetections(vehicleDetections, nonVehicle: topNV, intrinsics: intrinsics, timestamp: now)
+        applyRawDetections(vehicleDetections, nonVehicle: topNV, intrinsics: intrinsics,
+                           arFrame: arFrame ?? lastARFrame, timestamp: now)
 
         // Attach distance/speed/trackingState from DetectedVehicle to raw detections for HUD and overlay.
         let withDist = allDetections.map { raw -> RawDetection in
@@ -248,6 +271,7 @@ final class VehicleDetectionService: ObservableObject {
     private func applyRawDetections(_ rawDetections: [RawDetection],
                                     nonVehicle: RawDetection?,
                                     intrinsics: CameraIntrinsics?,
+                                    arFrame: ARFrame?,
                                     timestamp: Double) {
         var updated: [UUID: DetectedVehicle] = [:]
         var usedDetections = Set<Int>()
@@ -276,14 +300,36 @@ final class VehicleDetectionService: ObservableObject {
                 vehicle.isConfirmed = (framesSeen[id] ?? 0) >= confirmationFrames
                 vehicle.lastSeenAt  = Date()
 
-                // Vision-based kinematic estimation
-                if let intr = intrinsics,
-                   let estimate = distanceTracker.update(
+                // ARKit-based velocity estimation (preferred when ARKit available)
+                if let frame = arFrame,
+                   let arEstimate = arVelocityEstimator.update(
                        vehicleID: id,
-                       box: raw.boundingBox,
-                       intrinsics: intr,
+                       bbox: raw.boundingBox,
+                       arFrame: frame,
                        timestamp: timestamp
                    ) {
+                    // Derive distance from world position relative to camera
+                    let camPos = frame.camera.transform
+                    let camX = Double(camPos[3][0])
+                    let camZ = Double(camPos[3][2])
+                    let wx = Double(arEstimate.worldPosition.x)
+                    let wz = Double(arEstimate.worldPosition.z)
+                    let arDistance = sqrt((wx - camX) * (wx - camX) + (wz - camZ) * (wz - camZ))
+                    let calibrated = arDistance * calibrationService.scaleFactor
+
+                    vehicle.distanceMetres = calibrated
+                    vehicle.speedKmh       = arEstimate.speedKmh
+                    vehicle.isApproaching  = arEstimate.isApproaching
+                    vehicle.worldPosition  = arEstimate.worldPosition
+                    vehicle.velocityVector = arEstimate.velocityVector
+                } else if let intr = intrinsics,
+                          let estimate = distanceTracker.update(
+                              vehicleID: id,
+                              box: raw.boundingBox,
+                              intrinsics: intr,
+                              timestamp: timestamp
+                          ) {
+                    // Fallback: vision-based Kalman distance/speed
                     vehicle.distanceMetres = estimate.distanceMetres
                     vehicle.speedKmh       = estimate.speedKmh
                     vehicle.isApproaching  = estimate.isApproaching
@@ -297,6 +343,7 @@ final class VehicleDetectionService: ObservableObject {
                     updated[id] = existing
                 } else {
                     distanceTracker.remove(vehicleID: id)
+                    arVelocityEstimator.remove(vehicleID: id)
                     missedFrames.removeValue(forKey: id)
                     framesSeen.removeValue(forKey: id)
                 }
