@@ -52,7 +52,7 @@ actor VelocityLogger {
     func log(_ entry: LogEntry) {
         buffer.append(entry)
         if buffer.count >= autoFlushThreshold {
-            Task { await self.flush() }
+            Task { self.flush() }
         }
     }
 

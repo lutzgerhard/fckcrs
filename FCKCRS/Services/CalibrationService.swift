@@ -53,7 +53,7 @@ final class CalibrationService: ObservableObject {
         let marker = ConeMarker(screenPoint: point, knownDistanceMetres: distance)
         pendingMarkers.append(marker)
         markers = pendingMarkers
-        log.info("CalibrationService: added marker \(pendingMarkers.count) at dist \(distance)m")
+        log.info("CalibrationService: added marker \(self.pendingMarkers.count) at dist \(distance)m")
 
         if pendingMarkers.count >= 3 {
             finishCalibration()
